@@ -100,3 +100,12 @@ class ReportGenerator:
             mf.write(md_content)
             
         return md_filepath
+
+    def generate_powerpoint_report(self) -> str:
+        """Save a readable four-slide weekly presentation for this project."""
+        from src.weekly_ppt_generator import WeeklyPPTGenerator
+
+        project_name = self.metrics["project_name"]
+        ppt_filename = f"{project_name}_weekly_report.pptx"
+        ppt_filepath = os.path.join(self.output_dir, ppt_filename)
+        return WeeklyPPTGenerator(self.metrics, ppt_filepath).generate()

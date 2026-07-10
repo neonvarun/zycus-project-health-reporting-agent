@@ -61,9 +61,11 @@ def run_reporting_pipeline(data_dir: str, output_dir: str):
             generator = ReportGenerator(metrics, weekly_dir)
             json_path = generator.generate_json_report()
             md_path = generator.generate_markdown_report()
+            weekly_ppt_path = generator.generate_powerpoint_report()
             
             print(f"  Saved JSON: {json_path}")
             print(f"  Saved Markdown: {md_path}")
+            print(f"  Saved weekly PowerPoint: {weekly_ppt_path}")
             
             # Add to portfolio metrics
             portfolio_summary.append(metrics)
@@ -119,4 +121,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

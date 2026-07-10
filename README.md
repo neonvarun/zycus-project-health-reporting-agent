@@ -15,7 +15,7 @@ An automated PMO reporting tool that reads Excel project plans, calculates Red/A
 - Uses local Qwen3.5-0.8B Q4_K_M for explanation generation.
 - Downloads the model automatically on first use into `.models/`.
 - Falls back to rules-based explanations if the local model is unavailable.
-- Generates Markdown and JSON weekly reports.
+- Generates a human-readable weekly PowerPoint, plus Markdown and JSON weekly reports.
 - Generates a 7-slide monthly PowerPoint synthesis.
 - Provides a Streamlit dashboard for uploads, analysis, previews, and downloads.
 
@@ -67,8 +67,10 @@ The dashboard supports Excel uploads, project health cards, risk analysis, repor
 ```text
 outputs/
 ├── weekly/
+│   ├── Project Plan B_weekly_report.pptx
 │   ├── Project Plan B_weekly_report.md
 │   ├── Project Plan B_weekly_report.json
+│   ├── S2P Project_weekly_report.pptx
 │   ├── S2P Project_weekly_report.md
 │   └── S2P Project_weekly_report.json
 └── monthly/

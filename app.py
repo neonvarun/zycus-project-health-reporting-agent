@@ -368,7 +368,7 @@ with tab_downloads:
         col_dl1, col_dl2 = st.columns(2)
         
         with col_dl1:
-            st.markdown("### 📅 Weekly Reports (Markdown / JSON)")
+            st.markdown("### 📅 Weekly Reports (PowerPoint / Markdown / JSON)")
             
             # Select project for download
             proj_names = [p["project_name"] for p in analyzed_projects]
@@ -381,6 +381,7 @@ with tab_downloads:
             generator = ReportGenerator(selected_proj, weekly_temp_dir)
             json_filepath = generator.generate_json_report()
             md_filepath = generator.generate_markdown_report()
+            weekly_ppt_filepath = generator.generate_powerpoint_report()
             
             # Preview report
             st.markdown("**Weekly Report Preview (Markdown)**")
@@ -389,7 +390,7 @@ with tab_downloads:
             st.text_area("Markdown Preview", report_content, height=300)
             
             # Download buttons
-            col_b1, col_b2 = st.columns(2)
+            col_b1, col_b2, col_b3 = st.columns(3)
             with col_b1:
                 st.download_button(
                     label="Download Markdown Report",
@@ -405,6 +406,15 @@ with tab_downloads:
                     data=json_data,
                     file_name=f"{selected_proj_name}_weekly_report.json",
                     mime="application/json"
+                )
+            with col_b3:
+                with open(weekly_ppt_filepath, "rb") as weekly_ppt_file:
+                    weekly_ppt_data = weekly_ppt_file.read()
+                st.download_button(
+                    label="Download Weekly PowerPoint",
+                    data=weekly_ppt_data,
+                    file_name=f"{selected_proj_name}_weekly_report.pptx",
+                    mime="application/vnd.openxmlformats-officedocument.presentationml.presentation"
                 )
                 
         with col_dl2:
