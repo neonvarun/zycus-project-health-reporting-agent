@@ -52,6 +52,7 @@ Dates and task statuses were read from the supplied workbook.
         self.assertIn("Alpha Delivery", text)
         self.assertIn("WHY THIS STATUS", text.upper())
         self.assertIn("RECOMMENDED ACTIONS", text.upper())
+        self.assertNotIn("**", text)
 
 
 if __name__ == "__main__":

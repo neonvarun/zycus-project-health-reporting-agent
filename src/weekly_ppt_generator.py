@@ -110,8 +110,37 @@ def _section(reasoning: str, heading: str, fallback: str = "Not available.") -> 
     match = re.search(pattern, reasoning or "", flags=re.IGNORECASE | re.DOTALL)
     if not match:
         return fallback
-    value = re.sub(r"\s+", " ", match.group(1)).strip()
+    value = match.group(1)
+    value = re.sub(r"\*\*(.*?)\*\*", r"\1", value)
+    value = re.sub(r"`([^`]*)`", r"\1", value)
+    value = re.sub(r"\s+", " ", value).strip()
     return value or fallback
+
+
+def _shorten(text: str, limit: int) -> str:
+    """Keep presentation copy concise enough to fit its assigned space."""
+    return text if len(text) <= limit else f"{text[: limit - 1].rstrip()}…"
+
+
+def _recommended_actions(status: str) -> List[str]:
+    """Return brief, audience-facing actions appropriate to the RAG status."""
+    if status == "Red":
+        return [
+            "Escalate the critical blockers and confirm a named owner, decision, and due date.",
+            "Run a recovery review for the overdue milestone and its delivery dependencies.",
+            "Re-baseline the plan only after recovery dates and client dependencies are confirmed.",
+        ]
+    if status in {"Amber", "Yellow"}:
+        return [
+            "Assign owners and due dates for overdue milestones and open dependencies.",
+            "Hold a working session to unblock the highest-priority delivery risks.",
+            "Review resource coverage and validate recovery dates before the next weekly update.",
+        ]
+    return [
+        "Maintain the current delivery cadence and review the plan for emerging risks.",
+        "Confirm owners and dates for upcoming milestones before the next reporting cycle.",
+        "Keep project-plan progress and task-status updates current.",
+    ]
 
 
 class WeeklyPPTGenerator:
@@ -151,12 +180,16 @@ class WeeklyPPTGenerator:
     def _status_slide(self):
         slide = self.presentation.slides.add_slide(self.blank_layout)
         _add_box(slide, Inches(0), Inches(0), SLIDE_WIDTH, SLIDE_HEIGHT, SURFACE)
-        self._header(slide, "The project is currently in a " + self.status.upper() + " state", "The deterministic health evaluator owns the status; the AI layer explains the evidence.")
+        self._header(slide, "The project is currently in a " + self.status.upper() + " state", "Status is based on the current schedule, milestones, blockers, and project-plan data.")
         _add_box(slide, Inches(0.7), Inches(2.05), Inches(3.2), Inches(4.55), CARD, BORDER, radius=True)
         _add_text(slide, "RAG STATUS", Inches(1.0), Inches(2.35), Inches(2.6), Inches(0.3), size=15, color=MUTED, bold=True)
         _add_text(slide, self.status.upper(), Inches(1.0), Inches(2.78), Inches(2.6), Inches(0.7), size=38, color=self.status_color, bold=True)
         _add_text(slide, f"Calculated score: {self.metrics.get('calculated_score', 0):.1f}%", Inches(1.0), Inches(3.65), Inches(2.6), Inches(0.35), size=18, color=INK, bold=True)
-        _add_text(slide, _section(self.metrics.get("reasoning", ""), "Executive Summary"), Inches(1.0), Inches(4.2), Inches(2.6), Inches(1.8), size=16, color=INK)
+        executive_summary = _shorten(
+            _section(self.metrics.get("reasoning", ""), "Executive Summary"),
+            135,
+        )
+        _add_text(slide, executive_summary, Inches(1.0), Inches(4.2), Inches(2.6), Inches(1.55), size=16, color=INK)
         metrics = [
             ("Overall progress", f"{self.metrics.get('pct_complete', 0) * 100:.1f}%"),
             ("Timeline elapsed", f"{self.metrics.get('time_elapsed_pct', 0) * 100:.1f}%"),
@@ -183,9 +216,10 @@ class WeeklyPPTGenerator:
         _add_text(slide, "STATUS EXPLANATION", Inches(1.0), Inches(2.35), Inches(4.9), Inches(0.35), size=15, color=INDIGO, bold=True)
         _add_text(slide, _section(self.metrics.get("reasoning", ""), "Why This Status Was Assigned"), Inches(1.0), Inches(2.85), Inches(5.0), Inches(3.25), size=18, color=INK)
         _add_box(slide, Inches(6.75), Inches(2.05), Inches(5.88), Inches(4.55), INDIGO_LIGHT, radius=True)
-        _add_text(slide, "DECISION RULE", Inches(7.05), Inches(2.35), Inches(4.8), Inches(0.35), size=15, color=INDIGO, bold=True)
-        _add_text(slide, "RAG classification remains deterministic and reproducible. The local Qwen model is only used to turn the calculated evidence into readable PMO language.", Inches(7.05), Inches(2.85), Inches(5.0), Inches(1.5), size=21, color=INK, bold=True)
-        _add_text(slide, "If local inference is unavailable or produces incomplete sections, the rules-based explanation is used automatically so the report still completes safely.", Inches(7.05), Inches(4.75), Inches(5.0), Inches(1.1), size=17, color=INK)
+        _add_text(slide, "WHAT THIS MEANS", Inches(7.05), Inches(2.35), Inches(4.8), Inches(0.35), size=15, color=INDIGO, bold=True)
+        action_summary = _recommended_actions(self.status)[0]
+        _add_text(slide, action_summary, Inches(7.05), Inches(2.85), Inches(5.0), Inches(1.2), size=21, color=INK, bold=True)
+        _add_text(slide, "Use the next weekly review to confirm ownership, unblock decisions, and recovery dates.", Inches(7.05), Inches(4.75), Inches(5.0), Inches(0.85), size=17, color=INK)
         self._footer(slide, 3)
 
     def _actions_slide(self):
@@ -199,16 +233,17 @@ class WeeklyPPTGenerator:
             risks.append(f"Overdue milestone: {milestone.get('task_name', 'Unnamed milestone')}")
         if not risks:
             risks.append("No active blocker or overdue milestone was identified in the source plan.")
-        actions_text = _section(self.metrics.get("reasoning", ""), "Recommended Actions")
-        actions = [part.strip(" -*") for part in re.split(r"\n|(?<=\.)\s+(?=[A-Z])", actions_text) if part.strip()]
-        actions = actions[:4] or ["Review the latest project-plan inputs and confirm the next owner and due date."]
+        actions = _recommended_actions(self.status)
         _add_box(slide, Inches(0.7), Inches(2.05), Inches(5.75), Inches(4.55), CARD, BORDER, radius=True)
         _add_text(slide, "TOP RISK DRIVERS", Inches(1.0), Inches(2.35), Inches(4.9), Inches(0.35), size=15, color=self.status_color, bold=True)
         _add_bullets(slide, risks, Inches(1.0), Inches(2.9), Inches(5.0), Inches(3.0), size=18)
         _add_box(slide, Inches(6.75), Inches(2.05), Inches(5.88), Inches(4.55), CARD, BORDER, radius=True)
         _add_text(slide, "RECOMMENDED ACTIONS", Inches(7.05), Inches(2.35), Inches(5.0), Inches(0.35), size=15, color=INDIGO, bold=True)
         _add_bullets(slide, actions, Inches(7.05), Inches(2.9), Inches(5.0), Inches(2.55), size=17)
-        assumptions = _section(self.metrics.get("reasoning", ""), "Data Quality & Assumptions")
+        assumptions = _shorten(
+            _section(self.metrics.get("reasoning", ""), "Data Quality & Assumptions"),
+            95,
+        )
         _add_text(slide, "Data quality and assumptions", Inches(7.05), Inches(5.55), Inches(4.8), Inches(0.3), size=15, color=MUTED, bold=True)
         _add_text(slide, assumptions, Inches(7.05), Inches(5.9), Inches(5.0), Inches(0.5), size=14, color=INK)
         self._footer(slide, 4)
