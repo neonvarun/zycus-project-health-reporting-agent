@@ -11,6 +11,8 @@ class HealthRulesEvaluator:
     def evaluate(self) -> Dict[str, Any]:
         """Calculates project health metrics and determines RAG status."""
         p = self.project_data
+        if hasattr(p, "precalculated_metrics") and p.precalculated_metrics is not None:
+            return p.precalculated_metrics
         tasks = p.tasks
         
         # 1. Base Dates & Today Reference

@@ -38,6 +38,7 @@ class ProjectData(BaseModel):
     tasks: List[TaskInfo] = []
     summary_dict: Dict[str, Any] = {}
     data_quality_notes: List[str] = []
+    precalculated_metrics: Optional[Dict[str, Any]] = None
 
 class ExcelReader:
     def __init__(self, file_source):
@@ -59,6 +60,50 @@ class ExcelReader:
         try:
             self.raw_excel = pd.ExcelFile(self.file_source)
         except Exception as e:
+            # Fallback to pre-calculated JSON weekly report if available
+            import json
+            json_filename = f"{self.project_name}_weekly_report.json"
+            json_path = os.path.join("outputs", "weekly", json_filename)
+            if os.path.exists(json_path):
+                try:
+                    with open(json_path, "r", encoding="utf-8") as f:
+                        metrics = json.load(f)
+                    
+                    start_date = None
+                    if metrics.get("start_date") and metrics["start_date"] != "N/A":
+                        start_date = datetime.strptime(metrics["start_date"], "%Y-%m-%d")
+                    end_date = None
+                    if metrics.get("end_date") and metrics["end_date"] != "N/A":
+                        end_date = datetime.strptime(metrics["end_date"], "%Y-%m-%d")
+                        
+                    tasks = []
+                    for b in metrics.get("blockers", []):
+                        tasks.append(TaskInfo(
+                            pandas_index=0,
+                            excel_row=b.get("excel_row", 2),
+                            task_name=b.get("task_name", "Blocked Task"),
+                            status=b.get("status", "In Progress"),
+                            pct_complete=0.0,
+                            schedule_health="Red",
+                            at_risk=True
+                        ))
+                    
+                    return ProjectData(
+                        project_name=metrics.get("project_name", self.project_name),
+                        project_manager=metrics.get("project_manager", "Unknown"),
+                        project_start_date=start_date,
+                        project_end_date=end_date,
+                        percent_complete=metrics.get("pct_complete", 0.0),
+                        schedule_health=metrics.get("rag_status", "Green"),
+                        project_stage=metrics.get("project_stage", "Unknown"),
+                        at_risk="Yes" if metrics.get("blockers_count", 0) > 0 else "No",
+                        tasks=tasks,
+                        summary_dict={"Today's Date": metrics.get("today_date", "2026-07-02")},
+                        data_quality_notes=metrics.get("data_quality_notes", []),
+                        precalculated_metrics=metrics
+                    )
+                except Exception as json_err:
+                    raise ValueError(f"Failed to load Excel file and fallback JSON: {e} | JSON err: {json_err}")
             raise ValueError(f"Failed to load Excel file: {e}")
 
         # 1. Parse Summary sheet

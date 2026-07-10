@@ -121,23 +121,41 @@ Structured project health data:
         return text.strip()
 
     def _generate_local_reasoning(self) -> str:
-        """Generate reasoning with the cached local Qwen GGUF model."""
+        """Generate reasoning with the cached local GGUF model."""
         config = LocalModelConfig.from_environment()
         model = get_local_model(config)
-        response = model.create_chat_completion(
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You write concise, factual PMO health reports. Follow the requested headings exactly.",
-                },
-                {"role": "user", "content": self._build_model_prompt()},
-            ],
-            temperature=0.0,
-            top_p=1.0,
-            seed=42,
-            max_tokens=config.max_tokens,
-        )
-        text = response["choices"][0]["message"]["content"]
+        
+        if type(model).__name__ == "Llama":
+            system_text = "You write concise, factual PMO health reports. Follow the requested headings exactly."
+            user_text = self._build_model_prompt()
+            prompt = (
+                f"<|im_start|>system\n{system_text}<|im_end|>\n"
+                f"<|im_start|>user\n{user_text}<|im_end|>\n"
+                f"<|im_start|>assistant\n### Executive Summary\n"
+            )
+            response = model.create_completion(
+                prompt=prompt,
+                temperature=0.0,
+                max_tokens=config.max_tokens,
+                stop=["<|im_end|>"]
+            )
+            text = "### Executive Summary\n" + response["choices"][0]["text"]
+        else:
+            response = model.create_chat_completion(
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You write concise, factual PMO health reports. Follow the requested headings exactly.",
+                    },
+                    {"role": "user", "content": self._build_model_prompt()},
+                ],
+                temperature=0.0,
+                top_p=1.0,
+                seed=42,
+                max_tokens=config.max_tokens,
+            )
+            text = response["choices"][0]["message"]["content"]
+            
         return self._validate_generated_output(text)
 
     def _generate_rule_based_reasoning(self) -> str:
