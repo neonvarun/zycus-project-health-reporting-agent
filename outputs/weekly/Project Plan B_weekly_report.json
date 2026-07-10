@@ -1,0 +1,310 @@
+{
+  "project_name": "Project Plan B",
+  "project_manager": "Rajat Bothra",
+  "project_stage": "Training Phase I",
+  "start_date": "2026-02-11",
+  "end_date": "2026-10-09",
+  "today_date": "2026-07-02",
+  "pct_complete": 0.44,
+  "time_elapsed_pct": 0.5875,
+  "schedule_slippage": 0.14750000000000002,
+  "spi": 0.7489361702127659,
+  "status_counts": {
+    "Completed": 149,
+    "In Progress": 42,
+    "Not Started": 192,
+    "On Hold": 0,
+    "Not Applicable": 0
+  },
+  "health_counts": {
+    "Green": 332,
+    "Yellow": 9,
+    "Red": 42
+  },
+  "total_tasks": 383,
+  "overdue_tasks_count": 25,
+  "overdue_milestones_count": 2,
+  "blockers_count": 42,
+  "critical_incomplete": 50,
+  "on_hold_count": 0,
+  "neg_comments_count": 0,
+  "pos_comments_count": 0,
+  "calculated_score": 56.0,
+  "rag_status": "Red",
+  "overdue_milestones": [
+    {
+      "task_name": "Training Phase I",
+      "end_date": "2026-05-28",
+      "status": "In Progress"
+    },
+    {
+      "task_name": "Train The Trainer",
+      "end_date": "2026-05-28",
+      "status": "In Progress"
+    }
+  ],
+  "blockers": [
+    {
+      "task_name": "Zycus - UniSan S2P Implementation",
+      "status": "In Progress",
+      "excel_row": 2,
+      "comments": []
+    },
+    {
+      "task_name": "Training Phase I",
+      "status": "In Progress",
+      "excel_row": 111,
+      "comments": []
+    },
+    {
+      "task_name": "Train The Trainer",
+      "status": "In Progress",
+      "excel_row": 115,
+      "comments": []
+    },
+    {
+      "task_name": "Admin Training",
+      "status": "Not Started",
+      "excel_row": 118,
+      "comments": []
+    },
+    {
+      "task_name": "Hypercare Phase I",
+      "status": "In Progress",
+      "excel_row": 149,
+      "comments": []
+    },
+    {
+      "task_name": "Configuration Validation & Documentation",
+      "status": "In Progress",
+      "excel_row": 150,
+      "comments": []
+    },
+    {
+      "task_name": "iSource Configuration Documentation Workshop",
+      "status": "In Progress",
+      "excel_row": 152,
+      "comments": []
+    },
+    {
+      "task_name": "eProc, eInvoice and Merlin APSD Configuration Documentation Workshop",
+      "status": "In Progress",
+      "excel_row": 153,
+      "comments": []
+    },
+    {
+      "task_name": "Configuration Documentation",
+      "status": "Not Started",
+      "excel_row": 157,
+      "comments": []
+    },
+    {
+      "task_name": "eProc, eInvoice and Merlin APSD Configuration Documentation",
+      "status": "Not Started",
+      "excel_row": 159,
+      "comments": []
+    },
+    {
+      "task_name": "Integrations eproc",
+      "status": "In Progress",
+      "excel_row": 180,
+      "comments": []
+    },
+    {
+      "task_name": "eProc Integration with SAP for Purchase order",
+      "status": "In Progress",
+      "excel_row": 181,
+      "comments": []
+    },
+    {
+      "task_name": "Integration Design",
+      "status": "In Progress",
+      "excel_row": 182,
+      "comments": []
+    },
+    {
+      "task_name": "Review of TDD and share feedback with Zycus",
+      "status": "In Progress",
+      "excel_row": 185,
+      "comments": []
+    },
+    {
+      "task_name": "Sign off on TDD",
+      "status": "Not Started",
+      "excel_row": 186,
+      "comments": []
+    },
+    {
+      "task_name": "Development and Testing on STAGING Set Up",
+      "status": "In Progress",
+      "excel_row": 187,
+      "comments": []
+    },
+    {
+      "task_name": "Integration development at UniSan - as applicable",
+      "status": "Not Started",
+      "excel_row": 189,
+      "comments": []
+    },
+    {
+      "task_name": "eProc Integration: Completion of Design",
+      "status": "Not Started",
+      "excel_row": 194,
+      "comments": []
+    },
+    {
+      "task_name": "Integration Design",
+      "status": "In Progress",
+      "excel_row": 199,
+      "comments": []
+    },
+    {
+      "task_name": "Review of TDD and share feedback with Zycus",
+      "status": "In Progress",
+      "excel_row": 202,
+      "comments": []
+    },
+    {
+      "task_name": "Sign off on TDD",
+      "status": "Not Started",
+      "excel_row": 203,
+      "comments": []
+    },
+    {
+      "task_name": "Integration development at UniSan - as applicable",
+      "status": "Not Started",
+      "excel_row": 206,
+      "comments": []
+    },
+    {
+      "task_name": "eProc Integration: Completion of Design",
+      "status": "Not Started",
+      "excel_row": 211,
+      "comments": []
+    },
+    {
+      "task_name": "Integration Design",
+      "status": "Not Started",
+      "excel_row": 216,
+      "comments": []
+    },
+    {
+      "task_name": "Mapping activity for Integration",
+      "status": "Not Started",
+      "excel_row": 217,
+      "comments": []
+    },
+    {
+      "task_name": "Share TDD for interface",
+      "status": "Not Started",
+      "excel_row": 218,
+      "comments": []
+    },
+    {
+      "task_name": "Supplier Information Management with Integration",
+      "status": "In Progress",
+      "excel_row": 252,
+      "comments": []
+    },
+    {
+      "task_name": "iSupplier Deployment",
+      "status": "In Progress",
+      "excel_row": 253,
+      "comments": []
+    },
+    {
+      "task_name": "Design & Development on STAGING Set UP",
+      "status": "In Progress",
+      "excel_row": 254,
+      "comments": []
+    },
+    {
+      "task_name": "Pre-UAT on STAGING Set UP",
+      "status": "In Progress",
+      "excel_row": 258,
+      "comments": []
+    },
+    {
+      "task_name": "Supplier Bulk Upload on STAGING",
+      "status": "In Progress",
+      "excel_row": 263,
+      "comments": []
+    },
+    {
+      "task_name": "UniSan to provide supplier bulk upload data in the template provided by Zycus from UniSan's Staging environment",
+      "status": "In Progress",
+      "excel_row": 264,
+      "comments": []
+    },
+    {
+      "task_name": "Zycus to review the files and provide feedback",
+      "status": "In Progress",
+      "excel_row": 265,
+      "comments": []
+    },
+    {
+      "task_name": "UniSan to provide updated bulk upload data",
+      "status": "Not Started",
+      "excel_row": 266,
+      "comments": []
+    },
+    {
+      "task_name": "Zycus to bulk upload supplier data on STAGING setup",
+      "status": "Not Started",
+      "excel_row": 267,
+      "comments": []
+    },
+    {
+      "task_name": "UniSan to review bulk uploaded data",
+      "status": "Not Started",
+      "excel_row": 268,
+      "comments": []
+    },
+    {
+      "task_name": "UniSan to sign off on supplier bulk upload",
+      "status": "Not Started",
+      "excel_row": 269,
+      "comments": []
+    },
+    {
+      "task_name": "Integration Design",
+      "status": "In Progress",
+      "excel_row": 273,
+      "comments": []
+    },
+    {
+      "task_name": "Review of TDD and share feedback with Zycus",
+      "status": "In Progress",
+      "excel_row": 276,
+      "comments": []
+    },
+    {
+      "task_name": "Sign off on TDD",
+      "status": "Not Started",
+      "excel_row": 277,
+      "comments": []
+    },
+    {
+      "task_name": "Integration development at UniSan - as applicable",
+      "status": "Not Started",
+      "excel_row": 280,
+      "comments": []
+    },
+    {
+      "task_name": "eInvoice Integration: Completion of Design",
+      "status": "Not Started",
+      "excel_row": 285,
+      "comments": []
+    }
+  ],
+  "recent_comments": [],
+  "data_quality_notes": [
+    "Summary sheet cell 'Target Start Date' had unparseable Excel formula; treated as empty.",
+    "Summary sheet cell 'Target End Date' had unparseable Excel formula; treated as empty.",
+    "Summary sheet cell 'Schedule Delta' had unparseable Excel formula; treated as empty.",
+    "Summary sheet cell 'Target Dates Variance' had unparseable Excel formula; treated as empty.",
+    "Summary sheet cell 'Schedule Variance' had unparseable Excel formula; treated as empty.",
+    "Auto-detected main project plan sheet: 'Project Plan'"
+  ],
+  "reasoning": "### Executive Summary\nThe project **Project Plan B** is in a **RED (CRITICAL STATUS)** state. It is currently in the **Training Phase I** stage, managed by **Rajat Bothra**. Overall completion stands at **44.0%** against **58.8%** elapsed schedule (schedule slippage of 14.8%).\n\n### Why This Status Was Assigned\nImmediate leadership intervention is required due to severe delivery bottlenecks: there are **2** overdue milestones and **42** active blockers. The project SPI is **0.75**, representing an inefficient progress-to-timeline burn rate.\n\n### Top Risk Drivers\nOverdue milestones include: **Training Phase I, Train The Trainer**. Key blockers have been flagged on tasks like: **Zycus - UniSan S2P Implementation, Training Phase I, Train The Trainer**.\n\n### Recommended Actions\n1. **Schedule Client Alignment Call**: Request an immediate executive escalation call with the client project sponsor to address critical blocks.\n2. **Resource Injection**: Reallocate senior developers and integration architects to configuration and mapping work.\n3. **Re-baselining**: If client-side dependencies cannot be unblocked, initiate a formal change request to adjust the project timeline.\n\n### Data Quality & Assumptions\n- Project budget burn is assumed to scale linearly with elapsed schedule time.\n"
+}

@@ -1,0 +1,434 @@
+{
+  "project_name": "S2P Project",
+  "project_manager": "Aftab Hashambhai",
+  "project_stage": "Configuration and Build phase",
+  "start_date": "2025-12-05",
+  "end_date": "2026-12-07",
+  "today_date": "2026-07-02",
+  "pct_complete": 0.71,
+  "time_elapsed_pct": 0.5694822888283378,
+  "schedule_slippage": -0.14051771117166212,
+  "spi": 1.2467464114832536,
+  "status_counts": {
+    "Completed": 262,
+    "In Progress": 22,
+    "Not Started": 197,
+    "On Hold": 3,
+    "Not Applicable": 9
+  },
+  "health_counts": {
+    "Green": 466,
+    "Yellow": 2,
+    "Red": 25
+  },
+  "total_tasks": 493,
+  "overdue_tasks_count": 28,
+  "overdue_milestones_count": 8,
+  "blockers_count": 31,
+  "critical_incomplete": 40,
+  "on_hold_count": 3,
+  "neg_comments_count": 5,
+  "pos_comments_count": 0,
+  "calculated_score": 70.0,
+  "rag_status": "Amber",
+  "overdue_milestones": [
+    {
+      "task_name": "Configuration and Build phase",
+      "end_date": "2026-05-19",
+      "status": "In Progress"
+    },
+    {
+      "task_name": "Functional Confuguration on Staging System/ Setup",
+      "end_date": "2026-04-20",
+      "status": "In Progress"
+    },
+    {
+      "task_name": "Production & Cutover",
+      "end_date": "2026-06-12",
+      "status": "In Progress"
+    },
+    {
+      "task_name": "Supplier data to be provided by Customer",
+      "end_date": "2026-06-05",
+      "status": "In Progress"
+    },
+    {
+      "task_name": "iContract Legacy data to be provided by customer",
+      "end_date": "2026-06-05",
+      "status": "Not Applicable"
+    },
+    {
+      "task_name": "Data Load-Historical and bulk upload - iContract",
+      "end_date": "2026-06-09",
+      "status": "In Progress"
+    },
+    {
+      "task_name": "Onboard and Introduce TAM team to Customer",
+      "end_date": "2026-06-18",
+      "status": "In Progress"
+    },
+    {
+      "task_name": "Walkthrough of post hypercare support process by TAM team",
+      "end_date": "2026-06-19",
+      "status": "In Progress"
+    }
+  ],
+  "blockers": [
+    {
+      "task_name": "Configuration and Build phase",
+      "status": "In Progress",
+      "excel_row": 83,
+      "comments": []
+    },
+    {
+      "task_name": "Functional Confuguration on Staging System/ Setup",
+      "status": "In Progress",
+      "excel_row": 84,
+      "comments": []
+    },
+    {
+      "task_name": "Update configurations based as per IAD (Solution Design) using agreed Commodity, Division Tree & Project Stages",
+      "status": "In Progress",
+      "excel_row": 85,
+      "comments": []
+    },
+    {
+      "task_name": "Supplier Information Management with Integration",
+      "status": "In Progress",
+      "excel_row": 133,
+      "comments": []
+    },
+    {
+      "task_name": "iSupplier Deployment",
+      "status": "In Progress",
+      "excel_row": 135,
+      "comments": []
+    },
+    {
+      "task_name": "Repo Sample Supplier Upload on STAGING for iSource/iContract/iRisk",
+      "status": "In Progress",
+      "excel_row": 136,
+      "comments": []
+    },
+    {
+      "task_name": "Design & Development on STAGING Set UP",
+      "status": "In Progress",
+      "excel_row": 139,
+      "comments": []
+    },
+    {
+      "task_name": "Supplier Notification template",
+      "status": "On Hold",
+      "excel_row": 144,
+      "comments": []
+    },
+    {
+      "task_name": "OTK to share D&B creds",
+      "status": "On Hold",
+      "excel_row": 145,
+      "comments": []
+    },
+    {
+      "task_name": "Enable D & B App",
+      "status": "On Hold",
+      "excel_row": 146,
+      "comments": []
+    },
+    {
+      "task_name": "iSupplier Pre UAT",
+      "status": "Completed",
+      "excel_row": 206,
+      "comments": []
+    },
+    {
+      "task_name": "Production & Cutover",
+      "status": "In Progress",
+      "excel_row": 241,
+      "comments": []
+    },
+    {
+      "task_name": "Supplier data to be provided by Customer",
+      "status": "In Progress",
+      "excel_row": 245,
+      "comments": []
+    },
+    {
+      "task_name": "Data Load-Historical and bulk upload - iContract",
+      "status": "In Progress",
+      "excel_row": 260,
+      "comments": []
+    },
+    {
+      "task_name": "Hyper Care(Measure and Adoption) Solution",
+      "status": "In Progress",
+      "excel_row": 271,
+      "comments": []
+    },
+    {
+      "task_name": "Onboard and Introduce TAM team to Customer",
+      "status": "In Progress",
+      "excel_row": 272,
+      "comments": []
+    },
+    {
+      "task_name": "Walkthrough of post hypercare support process by TAM team",
+      "status": "In Progress",
+      "excel_row": 273,
+      "comments": []
+    },
+    {
+      "task_name": "Hypercare Support",
+      "status": "Not Started",
+      "excel_row": 274,
+      "comments": []
+    },
+    {
+      "task_name": "Phase 2 - P2P",
+      "status": "In Progress",
+      "excel_row": 275,
+      "comments": []
+    },
+    {
+      "task_name": "Share Pre-Requisite documents and information as per the templates shared by Zycus with Samples",
+      "status": "Completed",
+      "excel_row": 291,
+      "comments": []
+    },
+    {
+      "task_name": "Configuration Documentation workshop",
+      "status": "In Progress",
+      "excel_row": 292,
+      "comments": [
+        {
+          "comment": "As per scheduled agenda we have coverd all sessions",
+          "user": "Sarika Arthmwar",
+          "date": "06/26/26 2:25 PM"
+        },
+        {
+          "comment": "Due to parallel phase 1 activities onsite workshop dates are impacted",
+          "user": "Sarika Arthmwar",
+          "date": "05/18/26 7:31 AM"
+        }
+      ]
+    },
+    {
+      "task_name": "P2P, iSupplier Configuration Documentation Workshop",
+      "status": "Completed",
+      "excel_row": 293,
+      "comments": []
+    },
+    {
+      "task_name": "Master data to be provided by OTK team",
+      "status": "Not Started",
+      "excel_row": 294,
+      "comments": [
+        {
+          "comment": "OTK to provde Sample for processing further with Design conclusion however the complete data will be providd by or before July 10",
+          "user": "Sarika Arthmwar",
+          "date": "06/26/26 2:36 PM"
+        }
+      ]
+    },
+    {
+      "task_name": "Workflow details & CULT table details to be provided by OTK",
+      "status": "Not Started",
+      "excel_row": 295,
+      "comments": []
+    },
+    {
+      "task_name": "eInvoice outbound",
+      "status": "In Progress",
+      "excel_row": 299,
+      "comments": [
+        {
+          "comment": "JDE mapping is pending only",
+          "user": "Sarika Arthmwar",
+          "date": "06/26/26 2:39 PM"
+        }
+      ]
+    },
+    {
+      "task_name": "eInvoice integration use cases discussion-Invoice,creditmemo,payment,apportionment",
+      "status": "In Progress",
+      "excel_row": 300,
+      "comments": []
+    },
+    {
+      "task_name": "eProc Direct & Indirect",
+      "status": "In Progress",
+      "excel_row": 301,
+      "comments": [
+        {
+          "comment": "JDE field mapping remain to complete for PO outbound & GR Inbound @vinayaka.soratoor@zycus.com",
+          "user": "Sarika Arthmwar",
+          "date": "06/26/26 2:40 PM"
+        }
+      ]
+    },
+    {
+      "task_name": "eProc integration use cases discussion-create,edit,cancel,close",
+      "status": "In Progress",
+      "excel_row": 302,
+      "comments": []
+    },
+    {
+      "task_name": "Integration Design",
+      "status": "Not Started",
+      "excel_row": 385,
+      "comments": [
+        {
+          "comment": "@aftab.hashambhai@zycus.com Need meeting on calendar for this",
+          "user": "Vinayaka Soratoor",
+          "date": "06/23/26 9:29 AM"
+        }
+      ]
+    },
+    {
+      "task_name": "Integration set up and development at Zycus",
+      "status": "Not Started",
+      "excel_row": 391,
+      "comments": [
+        {
+          "comment": "@aftab.hashambhai@zycus.com  PH name need to be changed",
+          "user": "Vinayaka Soratoor",
+          "date": "06/23/26 9:30 AM"
+        }
+      ]
+    },
+    {
+      "task_name": "Integration Design",
+      "status": "Not Started",
+      "excel_row": 411,
+      "comments": [
+        {
+          "comment": "@aftab.hashambhai@zycus.com  Need to have these on calendar, as a outcome of workshop mapping will be complete, OTK will have time till this date to review and make any changes",
+          "user": "Vinayaka Soratoor",
+          "date": "06/23/26 9:25 AM"
+        }
+      ]
+    }
+  ],
+  "recent_comments": [
+    {
+      "task_name": "Go Value discussion & Project Plan",
+      "excel_row": 56,
+      "comment": "Yet to recieve Sign off",
+      "user": "System/Inline",
+      "date": "N/A"
+    },
+    {
+      "task_name": "Draft IAD discussion & Sign off",
+      "excel_row": 57,
+      "comment": "Yet to recieve Sign off",
+      "user": "System/Inline",
+      "date": "N/A"
+    },
+    {
+      "task_name": "iSupplier Integration Scenarios and Mapping",
+      "excel_row": 61,
+      "comment": "With OTK as of 23rd march",
+      "user": "System/Inline",
+      "date": "N/A"
+    },
+    {
+      "task_name": "iSupplier Integration Mapping discussions",
+      "excel_row": 62,
+      "comment": "With OTK as of 23rd march",
+      "user": "System/Inline",
+      "date": "N/A"
+    },
+    {
+      "task_name": "iSupplier end to end integration flow",
+      "excel_row": 63,
+      "comment": "With OTK as of 23rd march",
+      "user": "System/Inline",
+      "date": "N/A"
+    },
+    {
+      "task_name": "iSupplier TDD review",
+      "excel_row": 64,
+      "comment": "with OTK as of 23rd march",
+      "user": "System/Inline",
+      "date": "N/A"
+    },
+    {
+      "task_name": "Working integrations demo for iSupplier &   \nOverall integration summary and next steps discussion",
+      "excel_row": 65,
+      "comment": "TBD ,depends on 66,67,68",
+      "user": "System/Inline",
+      "date": "N/A"
+    },
+    {
+      "task_name": "Configuration Documentation workshop",
+      "excel_row": 292,
+      "comment": "As per scheduled agenda we have coverd all sessions",
+      "user": "Sarika Arthmwar",
+      "date": "06/26/26 2:25 PM"
+    },
+    {
+      "task_name": "Configuration Documentation workshop",
+      "excel_row": 292,
+      "comment": "Due to parallel phase 1 activities onsite workshop dates are impacted",
+      "user": "Sarika Arthmwar",
+      "date": "05/18/26 7:31 AM"
+    },
+    {
+      "task_name": "Master data to be provided by OTK team",
+      "excel_row": 294,
+      "comment": "OTK to provde Sample for processing further with Design conclusion however the complete data will be providd by or before July 10",
+      "user": "Sarika Arthmwar",
+      "date": "06/26/26 2:36 PM"
+    },
+    {
+      "task_name": "eInvoice outbound",
+      "excel_row": 299,
+      "comment": "JDE mapping is pending only",
+      "user": "Sarika Arthmwar",
+      "date": "06/26/26 2:39 PM"
+    },
+    {
+      "task_name": "eProc Direct & Indirect",
+      "excel_row": 301,
+      "comment": "JDE field mapping remain to complete for PO outbound & GR Inbound @vinayaka.soratoor@zycus.com",
+      "user": "Sarika Arthmwar",
+      "date": "06/26/26 2:40 PM"
+    },
+    {
+      "task_name": "Integration Design",
+      "excel_row": 385,
+      "comment": "@aftab.hashambhai@zycus.com Need meeting on calendar for this",
+      "user": "Vinayaka Soratoor",
+      "date": "06/23/26 9:29 AM"
+    },
+    {
+      "task_name": "Integration set up and development at Zycus",
+      "excel_row": 391,
+      "comment": "@aftab.hashambhai@zycus.com  PH name need to be changed",
+      "user": "Vinayaka Soratoor",
+      "date": "06/23/26 9:30 AM"
+    },
+    {
+      "task_name": "Integration Design",
+      "excel_row": 411,
+      "comment": "@aftab.hashambhai@zycus.com  Need to have these on calendar, as a outcome of workshop mapping will be complete, OTK will have time till this date to review and make any changes",
+      "user": "Vinayaka Soratoor",
+      "date": "06/23/26 9:25 AM"
+    },
+    {
+      "task_name": "Master Data: Conclude Functional Configuration",
+      "excel_row": 435,
+      "comment": "@aftab.hashambhai@zycus.com  eInvoice section is repeating",
+      "user": "Vinayaka Soratoor",
+      "date": "06/23/26 9:27 AM"
+    }
+  ],
+  "data_quality_notes": [
+    "Summary sheet cell 'Target Start Date' had unparseable Excel formula; treated as empty.",
+    "Summary sheet cell 'Target End Date' had unparseable Excel formula; treated as empty.",
+    "Summary sheet cell 'Schedule Delta' had unparseable Excel formula; treated as empty.",
+    "Summary sheet cell 'Target Dates Variance' had unparseable Excel formula; treated as empty.",
+    "Summary sheet cell 'Schedule Variance' had unparseable Excel formula; treated as empty.",
+    "Auto-detected main project plan sheet: 'Outokumpu- S2P Project'"
+  ],
+  "reasoning": "### Executive Summary\nThe project **S2P Project** is in an **AMBER (MODERATE RISK)** state. It is currently in the **Configuration and Build phase** stage, managed by **Aftab Hashambhai**. Progress stands at **71.0%** complete against **56.9%** elapsed timeline.\n\n### Why This Status Was Assigned\nThe project health is experiencing moderate friction, with **8** overdue milestones and **31** active blockers. Although the project is mathematically tracking ahead of schedule, delays on specific delivery milestones or dependencies prevent a Green classification. The current SPI is **1.25**.\n\n### Top Risk Drivers\nThe main concerns are active blockers on tasks: **Configuration and Build phase, Functional Confuguration on Staging System/ Setup, Update configurations based as per IAD (Solution Design) using agreed Commodity, Division Tree & Project Stages**. Overdue milestones include: **Configuration and Build phase, Functional Confuguration on Staging System/ Setup**.\n\n### Recommended Actions\n1. **Blocker Resolution**: Set up a working session to resolve technical blocks on **Configuration and Build phase, Functional Confuguration on Staging System/ Setup**.\n2. **Client Alignment**: Align with the client project team regarding pending inputs and design sign-offs.\n3. **Resource Reallocation**: Adjust task ownership or inject support to complete overdue milestones.\n### Data Quality & Assumptions\n- Project budget burn is assumed to scale linearly with elapsed schedule time.\n"
+}
